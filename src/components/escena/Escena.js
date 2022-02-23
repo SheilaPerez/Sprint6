@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function FraseEscena() {
+export function FraseEscena({text}) {
     return (
-        <p>El nostre heroï estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial</p>
+        <p>{text}</p>
     );
 }
