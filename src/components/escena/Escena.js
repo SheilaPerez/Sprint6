@@ -1,7 +1,8 @@
 import React from 'react';
+import {BorderText} from './BorderText'
 
 export function FraseEscena({text}) {
     return (
-        <p>{text}</p>
+        <BorderText>{text}</BorderText>
     );
 }
