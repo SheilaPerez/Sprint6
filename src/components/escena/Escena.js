@@ -1,8 +1,10 @@
 import React from 'react';
-import {BorderText} from './BorderText'
+import {BorderText} from './Styled'
 
-export function FraseEscena({text}) {
+export function FraseEscena({text, isActive}) {
     return (
-        <BorderText>{text}</BorderText>
+        <>
+            <BorderText isActive={isActive}>{text}</BorderText>
+        </>
     );
 }
