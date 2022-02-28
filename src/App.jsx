@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { FraseEscena } from "./components/escena/Escena";
 import { ButtonPrevious } from "./components/escena/ButtonPrevious"
 import { ButtonNext } from "./components/escena/ButtonNext"
+import { Welcome } from "./components/escena/Welcome"
 
 export function App() {
     const [activeText, setActiveText] = useState(0);
+    const [isLoggin, setIsLoggin] = useState(false);
 
     const texts = [
         "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial",
@@ -26,11 +28,20 @@ export function App() {
         }
     }
 
+    const handleClickWelcome = () => {
+        setIsLoggin(true);
+    }
+
+
+
     return (
         <>
-            <ButtonPrevious previousClick={handleNextClickedPrevious}/>
-            <ButtonNext nextClick={handleNextClickedNext}></ButtonNext>
-            {texts.map((text, index) => <FraseEscena text={text} isActive={index===activeText}/> )}
-        </> 
+            {isLoggin ? <>
+                            <ButtonPrevious previousClick={handleNextClickedPrevious}></ButtonPrevious>
+                            <ButtonNext nextClick={handleNextClickedNext}></ButtonNext>
+                            {texts.map((text, index) => <FraseEscena text={text} isActive={index === activeText} />)}
+                        </>
+                        : <Welcome welcomeBtn={handleClickWelcome}></Welcome>}
+        </>    
     )
 }
